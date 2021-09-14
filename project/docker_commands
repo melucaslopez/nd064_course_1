@@ -5,21 +5,23 @@
 # docker run -dp 7111:3111 techtrends
 
 ## Docker commands used to get the application logs
-# docker logs 547a6670b008
+# docker logs 5649e843649f
 
 ## Logs from the container running the TechTrends application
-# INFO:werkzeug:172.17.0.1 - - [13/Sep/2021 10:00:17] "GET / HTTP/1.1" 200 -
-# INFO:werkzeug:172.17.0.1 - - [13/Sep/2021 10:00:17] "GET /static/css/main.css HTTP/1.1" 200 -
-# INFO:werkzeug:172.17.0.1 - - [13/Sep/2021 10:00:19] "GET / HTTP/1.1" 200 -
-# INFO:app:Article 2020 CNCF Annual Report retrieved!
-# INFO:werkzeug:172.17.0.1 - - [13/Sep/2021 10:00:19] "GET /1 HTTP/1.1" 200 -
-# INFO:werkzeug:172.17.0.1 - - [13/Sep/2021 10:00:23] "GET / HTTP/1.1" 200 -
-# INFO:app:About paged accessed
-# INFO:werkzeug:172.17.0.1 - - [13/Sep/2021 10:22:00] "GET /about HTTP/1.1" 200 -
-# INFO:app:Metrics request successful
-# INFO:werkzeug:172.17.0.1 - - [13/Sep/2021 10:22:05] "GET /metrics HTTP/1.1" 200 -
-# INFO:app:Status request successful
-# INFO:werkzeug:172.17.0.1 - - [13/Sep/2021 10:22:08] "GET /healthz HTTP/1.1" 200 -
-# INFO:werkzeug:172.17.0.1 - - [13/Sep/2021 10:22:11] "GET / HTTP/1.1" 200 -
-# INFO:app:Article Kubernetes Certification retrieved!
-# INFO:werkzeug:172.17.0.1 - - [13/Sep/2021 10:22:13] "GET /6 HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2021 03:09:24] "GET / HTTP/1.1" 200 -
+INFO:app:14/09/2021, 03:09:26, Article 2020 CNCF Annual Report retrieved!
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2021 03:09:26] "GET /1 HTTP/1.1" 200 -
+INFO:app:14/09/2021, 03:09:31, About paged accessed
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2021 03:09:31] "GET /about HTTP/1.1" 200 -
+INFO:app:14/09/2021, 03:09:36, Metrics request successful
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2021 03:09:36] "GET /metrics HTTP/1.1" 200 -
+INFO:app:14/09/2021, 03:09:43, Status request successful
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2021 03:09:43] "GET /healthz HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2021 03:09:47] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2021 03:09:49] "GET /create HTTP/1.1" 200 -
+INFO:app:14/09/2021, 03:09:58, Article Test1 successfully created
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2021 03:09:58] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2021 03:09:58] "GET / HTTP/1.1" 200 -
+INFO:app:14/09/2021, 03:10:03, Article Test1 retrieved!
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2021 03:10:03] "GET /7 HTTP/1.1" 200 -

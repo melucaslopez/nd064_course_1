@@ -1,10 +1,8 @@
 import sqlite3
 import sys
-
-from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash, render_template_string
 import logging
-from werkzeug.exceptions import abort
-app = Flask(__name__)
+from datetime import datetime
+from flask import Flask, json, render_template, request, url_for, redirect, flash
 
 connection_count = 0
 posts_count = 0
@@ -24,6 +22,11 @@ def get_post(post_id):
                         (post_id,)).fetchone()
     connection.close()
     return post
+
+# Function to get the current date and time
+def getNow():
+    date = datetime.now().strftime("%d/%m/%Y, %H:%M:%S")
+    return date
 
 # Define the Flask application
 app = Flask(__name__)
@@ -46,16 +49,16 @@ def post(post_id):
     post = get_post(post_id)
     title = post[2]
     if post is None:
-      app.logger.info("Article non existing")
+      app.logger.info("%s, Article non existing", getNow())
       return render_template('404.html'), 404
     else:
-      app.logger.info("Article %s retrieved!", title)
+      app.logger.info("%s, Article %s retrieved!", getNow(), title)
       return render_template('post.html', post=post)
 
 # Define the About Us page
 @app.route('/about')
 def about():
-    app.logger.info("About paged accessed")
+    app.logger.info("%s, About paged accessed", getNow())
     return render_template('about.html')
 
 # Define the post creation functionality 
@@ -73,11 +76,12 @@ def create():
                          (title, content))
             connection.commit()
             connection.close()
-            app.logger.info("Article %s successfully created", title)
+            app.logger.info("%s, Article %s successfully created", getNow(), title)
             return redirect(url_for('index'))
 
     return render_template('create.html')
 
+# Returns the health of the application
 @app.route("/healthz")
 def healthcheck():
     health = {
@@ -88,9 +92,10 @@ def healthcheck():
         status=200,
         mimetype='application/json'
     )
-    app.logger.info("Status request successful")
+    app.logger.info("%s, Status request successful", getNow())
     return response
 
+# Returns some metrics for amount of current posts and amount of db calls
 @app.route("/metrics")
 def metrics():
     global posts_count
@@ -103,11 +108,12 @@ def metrics():
         status=200,
         mimetype='application/json'
     )
-    app.logger.info("Metrics request successful")
+    app.logger.info("%s, Metrics request successful", getNow())
     return response
 
 # start the application on port 3111
 if __name__ == "__main__":
     logging.basicConfig(
+        stream=sys.stdout,
         level=logging.DEBUG)
     app.run(host='0.0.0.0', port='3111')
