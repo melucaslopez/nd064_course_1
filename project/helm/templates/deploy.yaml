@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: techtrends
-  namespace: sandbox
+  namespace: {{ .Values.namespace.name }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: techtrends
@@ -14,24 +14,12 @@ spec:
         app: techtrends
     spec:
       containers:
-      - image: melucaslopez/techtrends:latest
-        imagePullPolicy: IfNotPresent
+      - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         name: techtrends
         ports:
-        - containerPort: 3111
-          protocol: TCP
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 3111
-        readinessProbe:
-          httpGet:
-            path: /healthz
-            port: 3111
-        resources:
-          requests:
-            cpu: 250m
-            memory: 64Mi
-          limits:
-            cpu: 500m
-            memory: 128Mi
+        - containerPort: {{ .Values.ports.containerPort }}
+          protocol: {{ .Values.ports.protocol }}
+        livenessProbe: {{ toYaml .Values.livenessProbe | indent 12 }}
+        readinessProbe: {{ toYaml .Values.readinessProbe | indent 12 }}
+        resources: {{ toYaml .Values.resources | indent 12 }}

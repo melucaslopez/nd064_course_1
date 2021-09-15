@@ -24,6 +24,7 @@ resources:
 
 ports:
 - containerPort: 3111
+  protocol: TCP
 
 livenessProbe:
   httpGet:
