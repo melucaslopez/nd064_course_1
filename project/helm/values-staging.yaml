@@ -8,8 +8,8 @@ replicaCount: 3
 
 resources:
   requests:
-    cpu: 90Mi
-    memory: 300m
+    cpu: 300m
+    memory: 90Mi
   limits:
-    cpu: 128Mi
-    memory: 500m
+    cpu: 500m
+    memory: 128Mi
