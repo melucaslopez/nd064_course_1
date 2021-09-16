@@ -49,16 +49,16 @@ def post(post_id):
     post = get_post(post_id)
     title = post[2]
     if post is None:
-      app.logger.info("%s, Article non existing", getNow())
+      app.logger.info("[%s] - Article non existing", getNow())
       return render_template('404.html'), 404
     else:
-      app.logger.info("%s, Article %s retrieved!", getNow(), title)
+      app.logger.info("[%s] - Article %s retrieved!", getNow(), title)
       return render_template('post.html', post=post)
 
 # Define the About Us page
 @app.route('/about')
 def about():
-    app.logger.info("%s, About paged accessed", getNow())
+    app.logger.info("[%s] - About paged accessed", getNow())
     return render_template('about.html')
 
 # Define the post creation functionality 
@@ -76,7 +76,7 @@ def create():
                          (title, content))
             connection.commit()
             connection.close()
-            app.logger.info("%s, Article %s successfully created", getNow(), title)
+            app.logger.info("[%s] - Article %s successfully created", getNow(), title)
             return redirect(url_for('index'))
 
     return render_template('create.html')
@@ -92,7 +92,7 @@ def healthcheck():
         status=200,
         mimetype='application/json'
     )
-    app.logger.info("%s, Status request successful", getNow())
+    app.logger.info("[%s] - Status request successful", getNow())
     return response
 
 # Returns some metrics for amount of current posts and amount of db calls
@@ -108,12 +108,11 @@ def metrics():
         status=200,
         mimetype='application/json'
     )
-    app.logger.info("%s, Metrics request successful", getNow())
+    app.logger.info("[%s] - Metrics request successful", getNow())
     return response
 
 # start the application on port 3111
 if __name__ == "__main__":
-    logging.basicConfig(
-        stream=sys.stdout,
-        level=logging.DEBUG)
+    logging.basicConfig(filename='app.log', level=logging.DEBUG)
+    logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
     app.run(host='0.0.0.0', port='3111')
