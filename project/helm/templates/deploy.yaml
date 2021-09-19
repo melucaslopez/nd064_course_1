@@ -19,6 +19,18 @@ spec:
         name: techtrends
         ports:
         - containerPort: {{ .Values.containerPort }}
-        livenessProbe: {{ toYaml .Values.livenessProbe | indent 10 }}
-        readinessProbe: {{ toYaml .Values.readinessProbe | indent 10 }}
-        resources: {{ toYaml .Values.resources | indent 10 }}
+        livenessProbe:
+          httpGet:
+            path: {{ .Values.path }}
+            port: {{ .Values.port }}
+        readinessProbe:
+          httpGet:
+            path: {{ .Values.path }}
+            port: {{ .Values.port }}
+        resources:
+          requests:
+            cpu: {{ .Values.resources.request.cpu }}
+            memory: {{ .Values.resources.request.memory }}
+          limits:
+            cpu: {{ .Values.resources.limits.cpu }}
+            memory: {{ .Values.resources.limits.memory }}
