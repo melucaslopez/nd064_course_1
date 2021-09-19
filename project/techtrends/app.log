@@ -65,3 +65,22 @@ INFO:werkzeug:127.0.0.1 - - [16/Sep/2021 02:46:33] "GET / HTTP/1.1" 200 -
 INFO:app:[16/09/2021, 02:46:34] - Article 2020 CNCF Annual Report retrieved!
 INFO:werkzeug:127.0.0.1 - - [16/Sep/2021 02:46:34] "GET /1 HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [16/Sep/2021 02:46:35] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [18/Sep/2021 21:41:19] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Sep/2021 21:41:19] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Sep/2021 21:41:19] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:app:[18/09/2021, 21:41:33] - Article 2020 CNCF Annual Report retrieved!
+INFO:werkzeug:127.0.0.1 - - [18/Sep/2021 21:41:33] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Sep/2021 21:41:39] "GET / HTTP/1.1" 200 -
+INFO:app:[18/09/2021, 21:41:40] - Article KubeCon + CloudNativeCon 2021 retrieved!
+INFO:werkzeug:127.0.0.1 - - [18/Sep/2021 21:41:40] "GET /2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Sep/2021 21:41:42] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Sep/2021 21:41:43] "GET /create HTTP/1.1" 200 -
+INFO:app:[18/09/2021, 21:41:48] - Article Test1 successfully created
+INFO:werkzeug:127.0.0.1 - - [18/Sep/2021 21:41:48] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [18/Sep/2021 21:41:48] "GET / HTTP/1.1" 200 -
+INFO:app:[18/09/2021, 21:43:23] - Status request successful
+INFO:werkzeug:127.0.0.1 - - [18/Sep/2021 21:43:23] "GET /healthz HTTP/1.1" 200 -
+INFO:app:[18/09/2021, 21:43:29] - Metrics request successful
+INFO:werkzeug:127.0.0.1 - - [18/Sep/2021 21:43:29] "GET /metrics HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Sep/2021 21:43:39] "GET / HTTP/1.1" 200 -
