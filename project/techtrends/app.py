@@ -47,11 +47,11 @@ def index():
 @app.route('/<int:post_id>')
 def post(post_id):
     post = get_post(post_id)
-    title = post[2]
     if post is None:
       app.logger.info("[%s] - Article non existing", getNow())
       return render_template('404.html'), 404
     else:
+      title = post[2]
       app.logger.info("[%s] - Article %s retrieved!", getNow(), title)
       return render_template('post.html', post=post)
 
@@ -115,4 +115,5 @@ def metrics():
 if __name__ == "__main__":
     logging.basicConfig(filename='app.log', level=logging.DEBUG)
     logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
+    logging.getLogger().addHandler(logging.StreamHandler(sys.stderr))
     app.run(host='0.0.0.0', port='3111')

@@ -84,3 +84,16 @@ INFO:werkzeug:127.0.0.1 - - [18/Sep/2021 21:43:23] "GET /healthz HTTP/1.1" 200 -
 INFO:app:[18/09/2021, 21:43:29] - Metrics request successful
 INFO:werkzeug:127.0.0.1 - - [18/Sep/2021 21:43:29] "GET /metrics HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [18/Sep/2021 21:43:39] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [21/Sep/2021 00:25:12] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Sep/2021 00:25:12] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Sep/2021 00:25:12] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [21/Sep/2021 00:25:13] "GET / HTTP/1.1" 200 -
+INFO:app:[21/09/2021, 00:25:17] - Article 2020 CNCF Annual Report retrieved!
+INFO:werkzeug:127.0.0.1 - - [21/Sep/2021 00:25:17] "GET /1 HTTP/1.1" 200 -
+INFO:app:[21/09/2021, 00:25:21] - Article non existing
+INFO:werkzeug:127.0.0.1 - - [21/Sep/2021 00:25:21] "GET /10 HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [21/Sep/2021 00:25:26] "GET / HTTP/1.1" 200 -
+INFO:app:[21/09/2021, 00:25:29] - Article 2020 CNCF Annual Report retrieved!
+INFO:werkzeug:127.0.0.1 - - [21/Sep/2021 00:25:29] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Sep/2021 00:25:32] "GET / HTTP/1.1" 200 -
